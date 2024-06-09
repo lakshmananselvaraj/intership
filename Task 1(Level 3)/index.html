@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <div class="input-group">
+            <label for="temperature">Temperature:</label>
+            <input type="text" id="temperature" placeholder="Enter temperature">
+        </div>
+        <div class="input-group">
+            <label>From:</label>
+            <select id="from-unit">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>To:</label>
+            <select id="to-unit">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+        </div>
+        <button id="convert-btn">Convert</button>
+        <div class="result">
+            <h2>Converted Temperature:</h2>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>document.getElementById('convert-btn').addEventListener('click', function() {
+        const temperature = document.getElementById('temperature').value;
+        const fromUnit = document.getElementById('from-unit').value;
+        const toUnit = document.getElementById('to-unit').value;
+        const result = document.getElementById('result');
+    
+        if (isNaN(temperature)) {
+            result.textContent = "Please enter a valid number";
+            return;
+        }
+    
+        const temp = parseFloat(temperature);
+        let convertedTemp;
+    
+        if (fromUnit === toUnit) {
+            convertedTemp = temp;
+        } else {
+            switch (fromUnit) {
+                case 'celsius':
+                    if (toUnit === 'fahrenheit') {
+                        convertedTemp = (temp * 9/5) + 32;
+                    } else if (toUnit === 'kelvin') {
+                        convertedTemp = temp + 273.15;
+                    }
+                    break;
+                case 'fahrenheit':
+                    if (toUnit === 'celsius') {
+                        convertedTemp = (temp - 32) * 5/9;
+                    } else if (toUnit === 'kelvin') {
+                        convertedTemp = (temp - 32) * 5/9 + 273.15;
+                    }
+                    break;
+                case 'kelvin':
+                    if (toUnit === 'celsius') {
+                        convertedTemp = temp - 273.15;
+                    } else if (toUnit === 'fahrenheit') {
+                        convertedTemp = (temp - 273.15) * 9/5 + 32;
+                    }
+                    break;
+            }
+        }
+    
+        result.textContent = `${convertedTemp.toFixed(2)} ${toUnit.charAt(0).toUpperCase()}`;
+    });</script>
+</body>
+</html>

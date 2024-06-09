@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple iPhone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Apple</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>The New iPhone</h1>
+            <p>Experience the future of smartphones.</p>
+            <a href="#features" class="btn">Learn More</a>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <h2>Features</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*fxysHMEE2KhkqKV1PC0N_g.png" alt="Camera">
+                <h3>Stunning Camera</h3>
+                <p>Capture every moment in stunning detail with our advanced camera system.</p>
+            </div>
+            <div class="card">
+                <img src="https://cdsassets.apple.com/live/7WUAS350/images/iphone/ios-17-iphone-14-pro-settings-battery-battery-health-charging.png" alt="Performance">
+                <h3>Unmatched Performance</h3>
+                <p>Experience lightning-fast speeds with our latest A14 Bionic chip.</p>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHUr3h48GDebbEEMc4Zg7LQ9FOvL51aYjUWw&s" alt="Display">
+                <h3>Brilliant Display</h3>
+                <p>Enjoy a vibrant, true-to-life display with our new Super Retina XDR screen.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+            <img src="https://www.imagineonline.store/cdn/shop/files/iPhone_15_Pink_PDP_Image_Position-1__en-IN.jpg?v=1694605258" alt="iPhone Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmvHNwj3lvofqCHK-t6cV1QqBOzOl6s6uIb3I1NGsoJg&s" alt="iPhone Image 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ65xn7u2bFQUfgAeIuG6V5lWb1kajWyoBuuQ&s" alt="iPhone Image 3">
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Apple Inc. All rights reserved.</p>
+    </footer>
+    <script>document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('nav ul li a');
+        
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector(link.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });</script>
+</body>
+</html>
